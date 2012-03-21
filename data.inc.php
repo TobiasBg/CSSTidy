@@ -579,7 +579,7 @@ $GLOBALS['csstidy']['all_properties']['z-index'] = 'CSS2.0,CSS2.1,CSS3.0';
  *
  * @global array $GLOBALS['csstidy']['quoted_string_properties']
  */
-$GLOBALS['csstidy']['quoted_string_properties'] = array('content', 'font-family', 'quotes');
+$GLOBALS['csstidy']['quoted_string_properties'] = array('content', 'font', 'font-family', 'quotes');
 
 /**
  * An array containing all properties that can be defined multiple times without being overwritten.
