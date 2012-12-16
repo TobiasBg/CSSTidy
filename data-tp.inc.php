@@ -4,9 +4,12 @@
 unset( $data['csstidy']['all_properties']['binding'] );
 
 $data['csstidy']['all_properties']['text-size-adjust'] = 'CSS3.0';
+$data['csstidy']['all_properties']['zoom'] = 'CSS3.0';
 
 // Support browser prefixes for properties only in the latest CSS draft
 foreach ( $data['csstidy']['all_properties'] as $property => $levels ) {
+	$data['csstidy']['all_properties']['*' . $property] = $levels; // IE7 hacks
+
 	if ( strpos( $levels, "," ) === false ) {
 		$data['csstidy']['all_properties']['-moz-' . $property] = $levels;
 		$data['csstidy']['all_properties']['-webkit-' . $property] = $levels;
@@ -69,3 +72,4 @@ $data['csstidy']['all_properties']['object-position'] = 'CSS3.0';
 $data['csstidy']['all_properties']['text-overflow'] = 'CSS3.0';
 $data['csstidy']['all_properties']['-o-text-overflow'] = 'CSS3.0';
 $data['csstidy']['all_properties']['-ms-touch-action'] = 'CSS3.0';
+$data['csstidy']['all_properties']['-webkit-overflow-scrolling'] = 'CSS3.0';
