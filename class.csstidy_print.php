@@ -275,6 +275,9 @@ class csstidy_print {
 			}
 		}
 
+		if ( ! $this->parser->get_cfg( 'preserve_css' ) )
+			$output = str_replace( ' !important', '!important', $output );
+
 		$output = trim($output);
 
 		if (!$plain) {

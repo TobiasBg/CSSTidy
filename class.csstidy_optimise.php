@@ -176,7 +176,7 @@ class csstidy_optimise {
 
 		$important = '';
 		if ($this->parser->is_important($this->sub_value)) {
-			$important = '!important';
+			$important = ' !important';
 		}
 		$this->sub_value = $this->parser->gvw_important($this->sub_value);
 
@@ -225,7 +225,7 @@ class csstidy_optimise {
 		$important = '';
 		if ($this->parser->is_important($value)) {
 			$values = $this->parser->gvw_important($value);
-			$important = '!important';
+			$important = ' !important';
 		}
 		else
 			$values = $value;
@@ -269,7 +269,7 @@ class csstidy_optimise {
 	 */
 	public function compress_important(&$string) {
 		if ($this->parser->is_important($string)) {
-			$string = $this->parser->gvw_important($string) . '!important';
+			$string = $this->parser->gvw_important($string) . ' !important';
 		}
 		return $string;
 	}
@@ -543,7 +543,7 @@ class csstidy_optimise {
 		$important = '';
 		if ($this->parser->is_important($value)) {
 			$value = $this->parser->gvw_important($value);
-			$important = '!important';
+			$important = ' !important';
 		}
 		$values = explode(' ', $value);
 
@@ -634,7 +634,7 @@ class csstidy_optimise {
 				for ($i = 0; $i < 4; $i++) {
 					$val = $array[$value[$i]];
 					if ($this->parser->is_important($val)) {
-						$important = '!important';
+						$important = ' !important';
 						$return[$key] .= $this->parser->gvw_important($val) . ' ';
 					} else {
 						$return[$key] .= $val . ' ';
@@ -821,7 +821,7 @@ class csstidy_optimise {
 		$return = array('font-style' => null, 'font-variant' => null, 'font-weight' => null, 'font-size' => null, 'line-height' => null, 'font-family' => null);
 
 		if ($this->parser->is_important($str_value)) {
-			$important = '!important';
+			$important = ' !important';
 			$str_value = $this->parser->gvw_important($str_value);
 		}
 
@@ -865,7 +865,7 @@ class csstidy_optimise {
 				}
 			}
 		}
-		// add quotes if we have several qords in font-family
+		// add quotes if we have several words in font-family
 		if ($multiwords !== false) {
 			$return['font-family'] = '"' . $return['font-family'] . '"';
 		}
@@ -937,7 +937,7 @@ class csstidy_optimise {
 
 				// Remove !important
 				if ($this->parser->is_important($cur_value)) {
-					$important = '!important';
+					$important = ' !important';
 					$cur_value = $this->parser->gvw_important($cur_value);
 				}
 
