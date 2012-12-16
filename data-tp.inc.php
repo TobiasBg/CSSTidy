@@ -46,6 +46,10 @@ foreach ( $data['csstidy']['multiple_properties'] as $property ) {
  * Non-standard CSS properties.  They're not part of any spec, but we say
  * they're in all of them so that we can support them.
  */
+$data['csstidy']['all_properties']['-webkit-user-select'] = 'CSS2.0,CSS2.1,CSS3.0';
+$data['csstidy']['all_properties']['-moz-user-select'] = 'CSS2.0,CSS2.1,CSS3.0';
+$data['csstidy']['all_properties']['-ms-user-select'] = 'CSS2.0,CSS2.1,CSS3.0';
+$data['csstidy']['all_properties']['user-select'] = 'CSS2.0,CSS2.1,CSS3.0';
 $data['csstidy']['all_properties']['-webkit-filter'] = 'CSS2.0,CSS2.1,CSS3.0';
 $data['csstidy']['all_properties']['-moz-filter'] = 'CSS2.0,CSS2.1,CSS3.0';
 $data['csstidy']['all_properties']['-ms-filter'] = 'CSS2.0,CSS2.1,CSS3.0';
@@ -64,3 +68,4 @@ $data['csstidy']['all_properties']['-o-object-position'] = 'CSS3.0';
 $data['csstidy']['all_properties']['object-position'] = 'CSS3.0';
 $data['csstidy']['all_properties']['text-overflow'] = 'CSS3.0';
 $data['csstidy']['all_properties']['-o-text-overflow'] = 'CSS3.0';
+$data['csstidy']['all_properties']['-ms-touch-action'] = 'CSS3.0';
