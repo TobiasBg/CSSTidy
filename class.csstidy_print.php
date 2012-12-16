@@ -221,6 +221,8 @@ class csstidy_print {
 		foreach ($this->tokens as $key => $token) {
 			switch ($token[0]) {
 				case AT_START:
+					if ( $this->parser->get_cfg('preserve_css') )
+						$token[1] = str_replace( ',', ",\n", $token[1] );
 					$out .= $template[0] . $this->_htmlsp($token[1], $plain) . $template[1];
 					$out = & $in_at_out;
 					break;
@@ -228,7 +230,8 @@ class csstidy_print {
 				case SEL_START:
 					if ($this->parser->get_cfg('lowercase_s'))
 						$token[1] = strtolower($token[1]);
-					$token[1] = str_replace( ',', ",\n", $token[1] );
+					if ( $this->parser->get_cfg('preserve_css') )
+						$token[1] = str_replace( ',', ",\n", $token[1] );
 					$out .= ( $token[1]{0} !== '@') ? $template[2] . $this->_htmlsp($token[1], $plain) : $template[0] . $this->_htmlsp($token[1], $plain);
 					$out .= $template[3];
 					break;
@@ -249,7 +252,8 @@ class csstidy_print {
 					} else {
 						$out .= $template[6];
 					}
-					$out .= ( COMMENT == $this->tokens[$key+1][0] ) ? ' ' : "\n";
+					if ( $this->parser->get_cfg('preserve_css') )
+						$out .= ( COMMENT == $this->tokens[$key+1][0] ) ? ' ' : "\n";
 					break;
 
 				case SEL_END:
