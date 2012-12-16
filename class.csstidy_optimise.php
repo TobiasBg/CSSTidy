@@ -1,4 +1,15 @@
 <?php
+/**
+ * CSSTidy Optimising PHP Class
+ *
+ * @package TablePress
+ * @subpackage Libraries
+ * @author Florian Schmitz, Brett Zamir, Nikolay Matsievsky, Cedric Morin, Christopher Finke, Mark Scherer, Tobias Bäthge
+ * @since 1.0.0
+ */
+
+// Prohibit direct script loading
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 /**
  * CSSTidy - CSS Parser and Optimiser
@@ -966,7 +977,7 @@ class csstidy_optimise {
 
 }
 
-class safecss extends csstidy_optimise {
+class csstidy_custom_sanitize extends csstidy_optimise {
 	protected $props_w_urls      = array( 'background', 'background-image', 'list-style', 'list-style-image' );
 	protected $allowed_protocols = array( 'http', 'https' );
 

@@ -1,4 +1,15 @@
 <?php
+/**
+ * CSSTidy CSS Data, special data for TablePress
+ *
+ * @package TablePress
+ * @subpackage Libraries
+ * @author Florian Schmitz, Brett Zamir, Nikolay Matsievsky, Cedric Morin, Christopher Finke, Mark Scherer, Tobias Bäthge
+ * @since 1.0.0
+ */
+
+// Prohibit direct script loading
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 // remove potentially insecure "binding" property
 unset( $data['csstidy']['all_properties']['binding'] );
@@ -46,7 +57,7 @@ foreach ( $data['csstidy']['multiple_properties'] as $property ) {
 }
 
 /**
- * Non-standard CSS properties.  They're not part of any spec, but we say
+ * Non-standard CSS properties.	 They're not part of any spec, but we say
  * they're in all of them so that we can support them.
  */
 $data['csstidy']['all_properties']['-webkit-user-select'] = 'CSS2.0,CSS2.1,CSS3.0';

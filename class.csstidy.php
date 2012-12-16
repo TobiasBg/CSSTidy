@@ -1,4 +1,15 @@
 <?php
+/**
+ * CSSTidy Parsing PHP Class
+ *
+ * @package TablePress
+ * @subpackage Libraries
+ * @author Florian Schmitz, Brett Zamir, Nikolay Matsievsky, Cedric Morin, Christopher Finke, Mark Scherer, Tobias Bäthge
+ * @since 1.0.0
+ */
+
+// Prohibit direct script loading
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 /**
  * CSSTidy - CSS Parser and Optimiser
@@ -9,18 +20,18 @@
  *
  * This file is part of CSSTidy.
  *
- *   CSSTidy is free software; you can redistribute it and/or modify
- *   it under the terms of the GNU Lesser General Public License as published by
- *   the Free Software Foundation; either version 2.1 of the License, or
- *   (at your option) any later version.
+ *	 CSSTidy is free software; you can redistribute it and/or modify
+ *	 it under the terms of the GNU Lesser General Public License as published by
+ *	 the Free Software Foundation; either version 2.1 of the License, or
+ *	 (at your option) any later version.
  *
- *   CSSTidy is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU Lesser General Public License for more details.
+ *	 CSSTidy is distributed in the hope that it will be useful,
+ *	 but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	 GNU Lesser General Public License for more details.
  *
- *   You should have received a copy of the GNU Lesser General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *	 You should have received a copy of the GNU Lesser General Public License
+ *	 along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @license http://opensource.org/licenses/lgpl-license.php GNU Lesser General Public License
  * @package csstidy
@@ -38,14 +49,14 @@
  * @version 1.0
  */
 if (!function_exists('ctype_space')) {
-	/* ctype_space  Check for whitespace character(s) */
+	/* ctype_space	Check for whitespace character(s) */
 	function ctype_space($text) {
 		return!preg_match("/[^\s\r\n\t\f]/", $text);
 	}
 
 }
 if (!function_exists('ctype_alpha')) {
-	/* ctype_alpha  Check for alphabetic character(s) */
+	/* ctype_alpha	Check for alphabetic character(s) */
 	function ctype_alpha($text) {
 		return preg_match("/[a-zA-Z]/", $text);
 	}
@@ -56,13 +67,13 @@ if (!function_exists('ctype_alpha')) {
  * Defines constants
  * @todo //TODO: make them class constants of csstidy
  */
-define('AT_START',    1);
-define('AT_END',      2);
-define('SEL_START',   3);
-define('SEL_END',     4);
-define('PROPERTY',    5);
-define('VALUE',       6);
-define('COMMENT',     7);
+define('AT_START',	  1);
+define('AT_END',	  2);
+define('SEL_START',	  3);
+define('SEL_END',	  4);
+define('PROPERTY',	  5);
+define('VALUE',		  6);
+define('COMMENT',	  7);
 define('DEFAULT_AT', 41);
 
 /**
@@ -319,7 +330,7 @@ class csstidy {
 		$this->settings['template'] = ''; // say that propertie exist
 		$this->set_cfg('template','default'); // call load_template
 
-        $this->print = new csstidy_print($this);
+		$this->print = new csstidy_print($this);
 		$this->optimise = new csstidy_optimise($this);
 
 		$this->tokens_list = & $this->data['csstidy']['tokens'];

@@ -1,4 +1,15 @@
 <?php
+/**
+ * CSSTidy Printing PHP Class
+ *
+ * @package TablePress
+ * @subpackage Libraries
+ * @author Florian Schmitz, Brett Zamir, Nikolay Matsievsky, Cedric Morin, Christopher Finke, Mark Scherer, Tobias Bäthge
+ * @since 1.0.0
+ */
+
+// Prohibit direct script loading
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
 
 /**
  * CSSTidy - CSS Parser and Optimiser
@@ -10,18 +21,18 @@
  *
  * This file is part of CSSTidy.
  *
- *   CSSTidy is free software; you can redistribute it and/or modify
- *   it under the terms of the GNU Lesser General Public License as published by
- *   the Free Software Foundation; either version 2.1 of the License, or
- *   (at your option) any later version.
+ *	 CSSTidy is free software; you can redistribute it and/or modify
+ *	 it under the terms of the GNU Lesser General Public License as published by
+ *	 the Free Software Foundation; either version 2.1 of the License, or
+ *	 (at your option) any later version.
  *
- *   CSSTidy is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU Lesser General Public License for more details.
+ *	 CSSTidy is distributed in the hope that it will be useful,
+ *	 but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	 GNU Lesser General Public License for more details.
  *
- *   You should have received a copy of the GNU Lesser General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *	 You should have received a copy of the GNU Lesser General Public License
+ *	 along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @license http://opensource.org/licenses/lgpl-license.php GNU Lesser General Public License
  * @package csstidy
@@ -147,15 +158,15 @@ class csstidy_print {
 
 		$output .= $doctype_output . "\n" . '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="' . $lang . '"';
 		$output .= ( $doctype === 'xhtml1.1') ? '>' : ' lang="' . $lang . '">';
-		$output .= "\n<head>\n    <title>$title</title>";
+		$output .= "\n<head>\n	  <title>$title</title>";
 
 		if ($externalcss) {
-			$output .= "\n    <style type=\"text/css\">\n";
+			$output .= "\n	  <style type=\"text/css\">\n";
 			$cssparsed = file_get_contents('cssparsed.css');
 			$output .= $cssparsed; // Adds an invisible BOM or something, but not in css_optimised.php
 			$output .= "\n</style>";
 		} else {
-			$output .= "\n" . '    <link rel="stylesheet" type="text/css" href="cssparsed.css" />';
+			$output .= "\n" . '	   <link rel="stylesheet" type="text/css" href="cssparsed.css" />';
 		}
 		$output .= "\n</head>\n<body><code id=\"copytext\">";
 		$output .= $this->formatted();
@@ -343,7 +354,7 @@ class csstidy_print {
 					'*' => array(), // IE7 hacks first
 					'_' => array(), // IE6 hacks
 					'/' => array(), // IE6 hacks
-					'-' => array()  // IE6 hacks
+					'-' => array()	// IE6 hacks
 				);
 				foreach ($vali as $property => $valj) {
 					if (strncmp($property,"//",2)!==0) {

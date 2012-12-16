@@ -1,5 +1,17 @@
 <?php
 /**
+ * CSSTidy CSS Data
+ *
+ * @package TablePress
+ * @subpackage Libraries
+ * @author Florian Schmitz, Brett Zamir, Nikolay Matsievsky, Cedric Morin, Christopher Finke, Mark Scherer, Tobias Bäthge
+ * @since 1.0.0
+ */
+
+// Prohibit direct script loading
+defined( 'ABSPATH' ) || die( 'No direct script access allowed!' );
+
+/**
  * Various CSS Data for CSSTidy
  *
  * This file is part of CSSTidy.
@@ -647,4 +659,4 @@ $data['csstidy']['predefined_templates']['low_compression'][] = '</span>'."\n"; 
 $data['csstidy']['predefined_templates']['low_compression'][] = "\n";
 
 // Add TablePress specific modifications, based on Jetpack modifications
-require dirname( __FILE__ ) . '/data-tp.inc.php';
+require 'data-tp.inc.php';
