@@ -318,6 +318,8 @@ class csstidy {
 		$this->settings['timestamp'] = false;
 		$this->settings['template'] = ''; // say that propertie exist
 		$this->set_cfg('template','default'); // call load_template
+
+        $this->print = new csstidy_print($this);
 		$this->optimise = new csstidy_optimise($this);
 
 		$this->tokens_list = & $this->data['csstidy']['tokens'];
@@ -578,10 +580,6 @@ class csstidy {
 		// Temporarily set locale to en_US in order to handle floats properly
 		$old = @setlocale(LC_ALL, 0);
 		@setlocale(LC_ALL, 'C');
-
-		// PHP bug? Settings need to be refreshed in PHP4
-		$this->print = new csstidy_print($this);
-		$this->optimise = new csstidy_optimise($this);
 
 		$all_properties = & $this->data['csstidy']['all_properties'];
 		$at_rules = & $this->data['csstidy']['at_rules'];
