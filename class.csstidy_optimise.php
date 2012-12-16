@@ -119,7 +119,7 @@ class csstidy_optimise {
 		$shorthands = & $this->parser->data['csstidy']['shorthands'];
 
 		// optimise shorthand properties
-		if (isset($shorthands[$this->property])) {
+		if (isset($shorthands[$this->property]) && $this->parser->get_cfg('optimise_shorthands') > 0) {
 			$temp = $this->shorthand($this->value); // FIXME - move
 			if ($temp != $this->value) {
 				$this->parser->log('Optimised shorthand notation (' . $this->property . '): Changed "' . $this->value . '" to "' . $temp . '"', 'Information');
