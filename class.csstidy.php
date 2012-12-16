@@ -829,8 +829,11 @@ class csstidy {
 									$sub = $this->quote_font_format($sub);
 								}
 
-								if ($sub != '')
-									$this->value .= ((!strlen($this->value) OR substr($this->value,-1,1)==',')?'':' ').$sub;
+								if ($sub != '') {
+									if ( strlen( $this->value ) && ( ',' != substr( $this->value, -1, 1 ) || $this->get_cfg( 'preserve_css' ) ) )
+										$this->value .= ' ';
+									$this->value .= $sub;
+								}
 							}
 
 							$this->optimise->value();
